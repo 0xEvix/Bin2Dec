@@ -15,3 +15,40 @@
 # 2) Utilisateur doit être notifié s'il rentre autre chose que des 0 & des 1
 # 3) Utilisateur voit le résultat dans un seul champs de sortie content le décimal (base 10) équivalent au nombre binaire qui a été entré
 # 4) Utilisateur peut entrer un nombre variable de chiffre binaire
+
+# Le système numérique de base-2 est une notation positionnelle avec un radix de 2. Chaque chiffre est appelé un bit, ou chiffre binaire.
+# 1 = 1, 2 = 10, 4 = 2*2 = 10 * 10 = 100, 8 = 2 * 4 = 100 * 100 = 1 000, 16 = 2 * 8 = 1 000 * 1 000 = 10 000
+# La signification des représentation dépend de la base utilisé => 2 en base deux
+# On utilise 0 & 1
+# 1101 en base 2 => 1 * 2 puissance 3 + 1 * 2 puissance 2 + 0 * 2 puissance 1 + 1 * 2 puissance 0 = 13
+# On donne à chaque bit une puissance de deux, comme cette suite 1, 2, 4, 8, 16, 32, 64. Pour obtenir le nombre 7, 
+# on additionne les trois premiers bits; pour obtenir 6, on additionne seulement le bit de poids 4 et le bit de poids 2.
+
+
+def verifier_input(input):
+    for i in binary_numbers:
+        if not i.isdigit():
+            print("Erreur : Pas un chiffre. Problème :", i)
+            return 
+        if i != "0" and i != "1":
+            print("Uniquement des 0 & des 1. Problème :", i)
+            return 
+    
+    return True
+        
+
+
+binary_numbers = input("Veuillez entrer un nombre binaire, composé de 0 et de 1, d'une taille de 8 chiffres : ")
+
+while len(binary_numbers) != 8:
+    print("Entrez 8 chiffres")
+    binary_numbers = input("Veuillez entrer un nombre binaire, composé de 0 et de 1, d'une taille de 8 chiffres : ")
+
+if verifier_input(binary_numbers):
+    #binaire = "0b" + binary_numbers
+    print(int(binary_numbers, 2))
+    print(bin(255))
+
+
+            
+    
