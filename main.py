@@ -29,25 +29,21 @@ def verifier_input(input):
     for i in binary_numbers:
         if not i.isdigit():
             print("Erreur : Pas un chiffre. Problème :", i)
-            return 
+            return None
         if i != "0" and i != "1":
             print("Uniquement des 0 & des 1. Problème :", i)
-            return 
+            return None
     
     return True
         
-
-
 binary_numbers = input("Veuillez entrer un nombre binaire, composé de 0 et de 1, d'une taille de 8 chiffres : ")
 
-while len(binary_numbers) != 8:
-    print("Entrez 8 chiffres")
+while verifier_input(binary_numbers) == None:
     binary_numbers = input("Veuillez entrer un nombre binaire, composé de 0 et de 1, d'une taille de 8 chiffres : ")
 
-if verifier_input(binary_numbers):
-    #binaire = "0b" + binary_numbers
-    print(int(binary_numbers, 2))
-    print(bin(255))
+
+print(binary_numbers, "=", int(binary_numbers, 2))
+    
 
 
             
