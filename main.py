@@ -24,25 +24,33 @@
 # On donne à chaque bit une puissance de deux, comme cette suite 1, 2, 4, 8, 16, 32, 64. Pour obtenir le nombre 7, 
 # on additionne les trois premiers bits; pour obtenir 6, on additionne seulement le bit de poids 4 et le bit de poids 2.
 
+def convert_binary_in_decimal(binary_number):
+    decimal = 0
+    for number, i in enumerate(binary_number[::-1]):
 
-def verifier_input(input):
+        result = int(i) * (2 ** number)
+        decimal += result
+
+    return decimal
+
+def verifier_digit_zero_one(input):
     for i in binary_numbers:
         if not i.isdigit():
             print("Erreur : Pas un chiffre. Problème :", i)
-            return None
+            return False
         if i != "0" and i != "1":
             print("Uniquement des 0 & des 1. Problème :", i)
-            return None
-    
+            return False
     return True
         
-binary_numbers = input("Veuillez entrer un nombre binaire, composé de 0 et de 1, d'une taille de 8 chiffres : ")
+binary_numbers = input("Veuillez entrer un nombre binaire, composé de 0 et de 1: ")
 
-while verifier_input(binary_numbers) == None:
-    binary_numbers = input("Veuillez entrer un nombre binaire, composé de 0 et de 1, d'une taille de 8 chiffres : ")
+while not verifier_digit_zero_one(binary_numbers):
+    binary_numbers = input("Veuillez entrer un nombre binaire, composé de 0 et de 1: ")
 
+decimal_number = convert_binary_in_decimal(binary_numbers)
 
-print(binary_numbers, "=", int(binary_numbers, 2))
+print(decimal_number)
     
 
 
